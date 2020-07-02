@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/pcboyin.css') }}">
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/col_cha.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/tg.js') }}"></script>
+    <script src="{{ url_for('static',filename='images/01.gif') }}"></script>
+    <title>懂球弟推荐</title>
+</head>
+<body>
+<div class="banner">
+    <div class="top_fix">
+        <span>懂球弟，首单包赔</span>
+    </div>
+    <div class="banner_bigpic">
+    </div>
+    <div class="w">
+        <div class="point_sele">
+            <a href="{{ url_for('home.index') }}" class="a_1 sel_a">今日免费推荐</a>
+            <span>|</span>
+            <a href="{{ url_for('home.record') }}" class="a_2">历史战绩</a>
+            <span>|</span>
+            <a href="{{ url_for('home.knowledge') }}" class="a_2">足彩知识</a>
+        </div>
+        <div class="advertise">
+            <img src="{{ url_for('static',filename='images/01.gif') }}" alt="">
+        </div>
+        <div>
+            <img src="{{ url_for('static',filename='images/929ee7c0da.png') }}">
+        </div>
+    </div>
+</div>
+
+<div class="ymnr" style="padding: 91px 0 0;">
+    <div class="wzqtj_m">
+        <div class="color_tramf_1"></div>
+        <div class="color_tramf_2"></div>
+    </div>
+    <div class="zqtj">
+        <div class="zqtj_t">
+            <div class="w">
+                <img src="{{ url_for('static',filename='images/title-1.png') }}">
+                <div class="w_span">
+                    <div class="w_span_le">每日亚盘免费</div>
+                    <div class="w_span_ri">
+                    </div>
+                    <div class="clearfloat"></div>
+                </div>
+                <div class="clearfloat"></div>
+            </div>
+            <div class="clearfloat"></div>
+        </div>
+        <div class="zqtj_c">
+            <div class="w">
+                <!-- 广告-->
+                <div style="margin-bottom:-32px;">
+                    <!--                        <img src="images/bottom.jpg">--><br><br><br>
+                </div>
+                <!--                    足球-->
+                <div class="zqtjc_m">
+
+                    {% for football_match in football_matchs %}
+
+                    <table cellpadding="0" cellspacing="0">
+
+                        <tr>
+                            <td colspan="9" class="hbdyg" style="color:red;font-weight:bold;">
+                                <span>添加专家微信: <em><script>document.write(stxlwx);</script></em>  获取比赛内幕比分，您敢来，我敢送！ 精准赛事场场重注 承诺永不收费</span>
+                            </td>
+                        </tr>
+                         <tr>
+                            <td style="width:17%;">日期</td>
+                            <td style="width:24%;">球队主场</td>
+                            <td style="width:8%;">VS</td>
+                            <td style="width:20%;">球队客场</td>
+                            <td style="width:10%;">比分</td>
+                            <td style="width:21%;">开盘时间</td>
+                        </tr>
+                         <tr>
+                            <td>{{ football_match.LEAGUE_NAME_SIMPLY }}:{{ football_match.LEAGUE_DATA }}<br></td>
+                            <td>{{ football_match.H0ST_TEAM_NAME }}</td>
+                            <td>VS</td>
+                            <td>{{ football_match.GUEST_TEAM_NAME }}</td>
+                            <td>{{ football_match.HOST_TEAM_GOAL }}:{{ football_match.GUEST_TEAM_GOAL }}</td>
+                            <td>{{ football_match.MATCH_TIME }}</td>
+
+                        </tr>
+
+                        <tr>
+                         <table cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td style="width:10%;">公司</td>
+                                <td style="width:9%;">主队</td>
+                                <td style="width:9%;">让球</td>
+                                <td style="width:9%;">客队</td>
+                                <td style="width:9%;">主胜</td>
+                                <td style="width:9%;">和局</td>
+                                <td style="width:9%;">客胜</td>
+                                <td style="width:9%;">大球</td>
+                                <td style="width:9%;">盘口</td>
+                                <td style="width:9%;">小球</td>
+                                <td style="width:9%;">分析</td>
+                                <!--td style="width:103px;">下注实单</td-->
+                            </tr>
+                                {% for company in companys %}
+                                 {% if football_match.football_match_id == company.match_id%}
+                                   <tr>
+                                    <td>{{ company.COMPANY_NAME }}</td>
+                                    <td>{{ company.HOST }}</td>
+                                    <td>{{ company.HANDICAP }}</td>
+                                    <td>{{ company.GUEST }}</td>
+                                    <td>{{ company.WIN }}</td>
+                                    <td>{{ company.SAME }}</td>
+                                    <td>{{ company.LOST }}</td>
+                                    <td>{{ company.BIG }}</td>
+                                    <td>{{ company.DW_HANDICAP }}</td>
+                                    <td>{{ company.SMALL }}</td>
+                                    <td>
+                                        <a href="weixin://" onclick="copyText()"><img src="{{ url_for('static',filename='images/37bf888af1.png') }}" class="mftj"></a>
+                                    </td>
+                                  </tr>
+                                 {% endif %}
+                                {% endfor %}
+                            </table>
+                        </tr>
+                    </table>
+                 {% endfor %}
+                </div>
+                <div style="margin-top:-21px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹窗E -->
+</div>
+<div class="ymnr" style="padding:0;">
+    <div class="wzqtj_m">
+        <div class="color_tramf_1"></div>
+        <div class="color_tramf_2"></div>
+    </div>
+    <div class="zqtj" style="margin-top:0px;">
+        <div class="zqtj_t">
+            <div class="w">
+                <img src="{{ url_for('static',filename='images/title-2.png') }}">
+                <div class="w_span">
+                    <div class="w_span_le">每日亚盘免费</div>
+                    <div class="w_span_ri">
+                    </div>
+                    <div class="clearfloat"></div>
+                </div>
+                <div class="clearfloat"></div>
+            </div>
+
+            <div class="clearfloat"></div>
+        </div>
+    </div>
+    <!-- 弹窗B -->
+    <div class="wei1 b_wei">
+        <!--左固定-->
+        <div class="wxBoxR" href="weixin://" onclick="copyText()">
+            <a style="color: white;font-weight: bold">点击复制微信号</a>
+            <script>document.write('<img src="images/' + stxlwx + '.jpg" alt="">')</script>
+        </div>
+        <a href="javascript:;" class="del_btn"><img src="{{ url_for('static',filename='images/close_pc.png') }}"></a>
+    </div>
+    <div class="wei2 b_wei">
+        <!--左固定-->
+        <div class="wxBoxR" href="weixin://" onclick="copyText()">
+            <a style="color: white;font-weight: bold">点击复制微信号</a>
+            <script>document.write('<img src="images/' + stxlwx + '.jpg" alt="">')</script>
+        </div>
+        <a href="javascript:;" class="del_btn"><img src="{{ url_for('static',filename='images/close_pc.png') }}"></a>
+    </div>
+    <!--底部固定-->
+    <div class="point_seleto">
+        <div class="point_sele">
+            <a href="{{ url_for('home.index') }}">
+                <div class="nav_tp nav_fi">
+                    <img src="{{ url_for('static',filename='images/tuijian.png') }}" alt="">
+                </div>
+                <span>今日免费推荐</span>
+            </a>
+            <a href="{{ url_for('home.knowledge') }}">
+                <div class="nav_tp nav_se">
+                    <img src="{{ url_for('static',filename='images/history.png') }}" alt="">
+                </div>
+                <span>历史战绩</span>
+            </a>
+            <a href="{{ url_for('home.record') }}">
+                <div class="nav_tp nav_th">
+                    <img src="{{ url_for('static',filename='images/zhishi.png') }}" alt="">
+                </div>
+                <span>足彩知识</span></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
