@@ -110,16 +110,16 @@
                                 {% for company in companys %}
                                  {% if football_match.football_match_id == company.match_id%}
                                    <tr>
-                                    <td>{{ company.COMPANY_NAME }}</td>
-                                    <td>{{ company.HOST }}</td>
-                                    <td>{{ company.HANDICAP }}</td>
-                                    <td>{{ company.GUEST }}</td>
-                                    <td>{{ company.WIN }}</td>
-                                    <td>{{ company.SAME }}</td>
-                                    <td>{{ company.LOST }}</td>
-                                    <td>{{ company.BIG }}</td>
-                                    <td>{{ company.DW_HANDICAP }}</td>
-                                    <td>{{ company.SMALL }}</td>
+                                    <td>{{ company.COMPANY_NAME or '' }}</td>
+                                    <td>{{ company.HOST or '' }}</td>
+                                    <td>{{ company.HANDICAP or ''  }}</td>
+                                    <td>{{ company.GUEST  or '' }}</td>
+                                    <td>{{ company.WIN  or '' }}</td>
+                                    <td>{{ company.SAME  or '' }}</td>
+                                    <td>{{ company.LOST  or '' }}</td>
+                                    <td>{{ company.BIG  or '' }}</td>
+                                    <td>{{ company.DW_HANDICAP  or '' }}</td>
+                                    <td>{{ company.SMALL  or '' }}</td>
                                     <td>
                                         <a href="weixin://" onclick="copyText()"><img src="{{ url_for('static',filename='images/37bf888af1.png') }}" class="mftj"></a>
                                     </td>
@@ -164,7 +164,7 @@
         <!--左固定-->
         <div class="wxBoxR" href="weixin://" onclick="copyText()">
             <a style="color: white;font-weight: bold">点击复制微信号</a>
-            <script>document.write('<img src="images/' + stxlwx + '.jpg" alt="">')</script>
+            <script>document.write('<img src="{{ url_for('static',filename='images/guanren4214.jpg') }}" alt="">')</script>
         </div>
         <a href="javascript:;" class="del_btn"><img src="{{ url_for('static',filename='images/close_pc.png') }}"></a>
     </div>
@@ -172,7 +172,7 @@
         <!--左固定-->
         <div class="wxBoxR" href="weixin://" onclick="copyText()">
             <a style="color: white;font-weight: bold">点击复制微信号</a>
-            <script>document.write('<img src="images/' + stxlwx + '.jpg" alt="">')</script>
+            <script>document.write('<img src="{{ url_for('static',filename="images/guanren4214.jpg") }}" alt="">')</script>
         </div>
         <a href="javascript:;" class="del_btn"><img src="{{ url_for('static',filename='images/close_pc.png') }}"></a>
     </div>

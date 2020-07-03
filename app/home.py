@@ -27,7 +27,7 @@ def knowledge():
 
 def getYesterday():
     today = datetime.date.today()
-    oneday = datetime.timedelta(days=1)
+    oneday = datetime.timedelta(days=2)
     yesterday = today - oneday
     return yesterday.strftime('%Y-%m-%d')
 

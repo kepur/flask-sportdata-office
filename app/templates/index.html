@@ -110,18 +110,19 @@
                                         {% for company in companys %}
                                          {% if football_match.football_match_id == company.match_id%}
                                            <tr>
-                                            <td>{{ company.COMPANY_NAME }}</td>
-                                            <td>{{ company.HOST }}</td>
-                                            <td>{{ company.HANDICAP }}</td>
-                                            <td>{{ company.GUEST }}</td>
-                                            <td>{{ company.WIN }}</td>
-                                            <td>{{ company.SAME }}</td>
-                                            <td>{{ company.LOST }}</td>
-                                            <td>{{ company.BIG }}</td>
-                                            <td>{{ company.DW_HANDICAP }}</td>
-                                            <td>{{ company.SMALL }}</td>
+
+                                            <td>{{ company.COMPANY_NAME or '' }}</td>
+                                            <td>{{ company.HOST or '' }}</td>
+                                            <td>{{ company.HANDICAP or '' }}</td>
+                                            <td>{{ company.GUEST or '' }}</td>
+                                            <td>{{ company.WIN or '' }}</td>
+                                            <td>{{ company.SAME or '' }}</td>
+                                            <td>{{ company.LOST or '' }}</td>
+                                            <td>{{ company.BIG or '' }}</td>
+                                            <td>{{ company.DW_HANDICAP or '' }}</td>
+                                            <td>{{ company.SMALL or '' }}</td>
                                             <td>
-                                                <a href="weixin://" onclick="copyText()"><img src="{{ url_for('static',filename='images/guanren4214.jpg') }}" class="mftj"></a>
+                                                <a href="weixin://" onclick="copyText()"><img src="{{ url_for('static',filename='images/37bf888af1.png') }}" class="mftj"></a>
                                             </td>
                                           </tr>
                                          {% endif %}
@@ -335,7 +336,7 @@
                     <div id="cc">
                         <a href="javascript:;" style="text-decoration: none" title="关闭" class="del_btn2"><img border="0" src="{{ url_for('static',filename='images/close.png') }}"></a>
                     </div>
-                    <div align="left" id="gg"><b><font color="#FFFFFF" face="宋体" size="2">用手机下载「金冠」APP,关注本站</font></b>
+                    <div align="left" id="gg"><b><font color="#FFFFFF" face="宋体" size="2">用手机下载「環球體育」APP,关注本站</font></b>
                     </div>
                     <div align="left" id="gg1"><b><font color="#FFFFFF" face="宋体" size="2">记住:要用手机自带浏览器下载哦！</font></b>
                     </div>
