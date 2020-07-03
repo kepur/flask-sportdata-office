@@ -1,5 +1,5 @@
 """
-create by khan.hozin 2018.09
+create by khan.hozin 2020.07.02
 """
 __author__ = 'hozin'
 from app.models import db

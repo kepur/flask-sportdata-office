@@ -24,16 +24,20 @@ USER_AGENTS = [
 	"Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; fr) Presto/2.9.168 Version/11.52"
 ]
 
+#连接数据库
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-engine = create_engine('mysql+cymysql://root:Root!!2019@198.13.51.42:38789/football?charset=utf8')
+import config
+engine = create_engine(config.SQLALCHEMY_DATABASE_URI)
 Base = declarative_base()
 Session=sessionmaker(bind=engine)
 sport_session = Session()
+
 import requests,json
 import datetime
 
+#获取当前日期
 DateTimeNow = str(datetime.datetime.now().strftime('%Y-%m-%d'))
 def getYesterday():
     today = datetime.date.today()
@@ -41,7 +45,7 @@ def getYesterday():
     yesterday = today - oneday
     return yesterday.strftime('%Y-%m-%d')
 
-
+#获取网站数据
 def get_football_data(load_time=DateTimeNow):
 	url='http://odds.zgzcw.com/odds/oyzs_ajax.action'
 	import random
@@ -116,7 +120,6 @@ def Insert_save_db(date_id,data):
             company_last_one = sport_session.query(Companys.company_id).order_by(
                 Companys.company_id.desc()).first()
             if company_last_one:
-                print(company_last_one.company_id)
                 n=company_last_one.company_id+1
             else:
                 n=1
@@ -256,11 +259,28 @@ if __name__ == '__main__':
     # dateTime = '2020-07-02'
     # get_data_insert_in_db(dateTime)
 
+    #指定获取某个固定时间段数据
+    # dateTime = '2020-07-02'
+    # get_data_insert_in_db(dateTime)
+
     get_data_insert_in_db(DateTimeNow)
     #删除昨天重新抓取昨日数据
-    # delete_datetime_in_db(getYesterday())
-    # get_data_insert_in_db(getYesterday())
-
+    try:
+        yusterday=getYesterday()
+        get_data_insert_in_db(yusterday)
+        print("昨天日期为:{}".format(yusterday))
+        delete_datetime_in_db(yusterday)
+        get_data_insert_in_db(yusterday)
+        import time
+        time.sleep(1)
+        print("更新昨日赛程记录成功")
+    except:
+        print("更新昨日赛程记录失败")
+    try:
+        get_data_insert_in_db(DateTimeNow)
+        print("更新今日数据成功")
+    except:
+        print("更新今日数据失败")
 
 
 

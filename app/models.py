@@ -18,7 +18,7 @@ class Football_Math_Date_Data(db.Model):
     #添加时间
     add_time=db.Column(db.DateTime,index=True,default=datetime.now())
 
-
+#比赛相关数据
 class Football_MATCH(db.Model):
     __tablename__='football_match'
 

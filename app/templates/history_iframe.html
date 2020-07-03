@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='js/pcboyin.css') }}">
+    <script src="{{ url_for('static',filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/col_cha.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/tg.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/tanchuang.js') }}"></script>
+    <title>懂球弟推荐</title>
+</head>
+<body>
+<div class="zqtj_c">
+    {% for football_match in football_matchs %}
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <td colspan="9" class="hbdyg" style="color:red;font-weight:bold;">
+                    <span>添加专家微信: <em><script>document.write(stxlwx);</script></em>获取比赛内幕比分，您敢来，我敢送！ 精准赛事场场重注 承诺永不收费</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:17%;">日期</td>
+                <td style="width:24%;">球队主场</td>
+                <td style="width:8%;">VS</td>
+                <td style="width:20%;">球队客场</td>
+                <td style="width:10%;">比分</td>
+                <td style="width:21%;">开盘时间</td>
+            </tr>
+            <tr>
+                <td>{{ football_match.LEAGUE_NAME_SIMPLY }}:{{ football_match.LEAGUE_DATA }}<br></td>
+                <td>{{ football_match.H0ST_TEAM_NAME }}</td>
+                <td>VS</td>
+                <td>{{ football_match.GUEST_TEAM_NAME }}</td>
+                <td>?:?</td>
+                <td>{{ football_match.MATCH_TIME }}</td>
+            </tr>
+
+            <tr>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td style="width:10%;">公司</td>
+                        <td style="width:9%;">主队</td>
+                        <td style="width:9%;">让球</td>
+                        <td style="width:9%;">客队</td>
+                        <td style="width:9%;">主胜</td>
+                        <td style="width:9%;">和局</td>
+                        <td style="width:9%;">客胜</td>
+                        <td style="width:9%;">大球</td>
+                        <td style="width:9%;">盘口</td>
+                        <td style="width:9%;">小球</td>
+                        <td style="width:9%;">分析</td>
+                        <!--td style="width:103px;">下注实单</td-->
+                    </tr>
+                    {% for company in companys %}
+                        {% if football_match.football_match_id == company.match_id %}
+                            <tr>
+
+                                <td>{{ company.COMPANY_NAME or '' }}</td>
+                                <td>{{ company.HOST or '' }}</td>
+                                <td>{{ company.HANDICAP or '' }}</td>
+                                <td>{{ company.GUEST or '' }}</td>
+                                <td>{{ company.WIN or '' }}</td>
+                                <td>{{ company.SAME or '' }}</td>
+                                <td>{{ company.LOST or '' }}</td>
+                                <td>{{ company.BIG or '' }}</td>
+                                <td>{{ company.DW_HANDICAP or '' }}</td>
+                                <td>{{ company.SMALL or '' }}</td>
+                                <td>
+                                    <a href="weixin://" onclick="copyText()"><img
+                                            src="{{ url_for('static',filename='images/37bf888af1.png') }}" class="mftj"></a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </tr>
+        </table>
+    {% endfor %}
+</div>
+</body>
+</html>
