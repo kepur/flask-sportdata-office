@@ -4,7 +4,8 @@ create by khan.hozin 2020/7/2
 __author__ = 'hozin'
 
 
-from flask import Blueprint
+from flask import Blueprint, jsonify
+
 home=Blueprint('home',__name__)
 
 from app.models import Football_Math_Date_Data,Football_MATCH,Companys
@@ -38,7 +39,6 @@ def record(datetime=getYesterday()):
     football_match=Football_MATCH.query.filter(Football_MATCH.match_time_id==yuesterday.id).all()
     companys=Companys.query.all()
     return render_template('record.html',football_matchs=football_match,companys=companys)
-
 
 
 @home.app_errorhandler(404)
