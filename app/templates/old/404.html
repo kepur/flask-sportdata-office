@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="panel">
+    <div class="text-center">
+      <h2><stong>404错误！很抱歉，您要找的页面不存在</stong></h2>
+        <div >
+            <a href="{{ url_for('home.index') }}"  >返回首页</a>
+        </div>
+        <div >
+            <a href="{{ url_for('home.index') }}" title="关键字" ></a>
+        </div>
+    </div>
+  </div>
+{% endblock %}

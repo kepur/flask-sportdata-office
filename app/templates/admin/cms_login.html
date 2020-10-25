@@ -1,0 +1,46 @@
+{% from 'common/_macros.html' import static %}
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title> 欧亚体育管理系统</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ static('cms/css/bootstrap.css') }}" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{static('cms/css/signin.css') }}" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <form class="form-signin" method="post">
+        <h2 class="form-signin-heading">请登录</h2>
+          <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        <label for="inputEmail" class="sr-only">邮箱：</label>
+             <input type="email" id="inputEmail" class="form-control btn-block" placeholder="邮箱" name="email" required autofocus>
+        <label for="inputPassword" class="sr-only">密码：</label>
+        <input type="password" id="inputPassword" class="form-control btn-block" placeholder="密码" name="password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="1" name="remember">记住我
+          </label>
+        </div>
+        <div style="text-align:left">
+                    <button  class="btn  btn-block btn-lg btn-primary " type="submit" value="Submit">立即登录</button>
+        </div>
+      </form>
+        {% if message %}
+            <p style="text-align: center;" class="text-danger">{{ message }}</p>
+        {% endif %}
+    </div> <!-- /container -->
+  </body>
+</html>

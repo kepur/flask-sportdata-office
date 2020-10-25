@@ -1,12 +1,230 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>错误请求</title>
-</head>
-<body>
+{% extends "common.html" %}
+{% block header %}
+<!--kode Wrapper Start-->
+<div class="kode_wrapper">
+	<!--Header 2 Wrap Start-->
+    <header class="kode_header_2">
+        <!--Header 2 Top Bar Start-->
+        <div class="kf_top_bar">
+            <div class="container">
+                <div class="pull-left">
+                    <ul class="kf_social2">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                    </ul>
+                </div>
+                <div class="kf_right_dec">
+                    <ul class="kf_topdec">
+                        <li>
+                            <div class="kf_lung">
+                                <span>结算币种 :</span>
+                                <div class="dropdown">
+                                    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> USD
+                                    </button>
+                                    <ul class="dropdown-menu" aria-labelledby="dLabel">
+                                        <li>RMB</li>
+                                        <li>USD</li>
+                                        <li>USDT</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li><a href="#">支持</a></li>
+                        <li><a href="#">愿望清单</a></li>
+                    </ul>
+                    <ul class="kf_user">
+                        <li><a href="#"><i class="fa fa-lock"></i>注册账户</a></li>
+                        <li><a href="#">登陆</a></li>
+                    </ul>
+                    <a href="#" data-toggle="modal" data-target="#search" class="kode_search"><i class="fa fa-search"></i></a>
+                </div>
+            </div>
+        </div>
+        <!--Header 2 Top Bar End-->
+        <div class="container">
+            <!--Logo Bar Start-->
+            <div class="kode_logo_bar">
+                <!--Logo Start-->
+                <div class="logo">
+                    <a href="#">
+                        <img src="{{url_for('static',filename='images/logo.png')}}" alt="">
+                    </a>
+                </div>
+                <!--Logo Start-->
+                <!--Navigation Wrap Start-->
+                <div class="kode_navigation">
+                    <!--Navigation Start-->
+                    <ul class="nav">
+                        <li><a href="{{ url_for('home.index') }}">亚洲足球网</a></li>
+                        <li><a href="{{ url_for('home.team_schedule') }}">今日赛事</a></li>
+                        <li><a href="{{ url_for('home.team_details') }}">足球推单</a></li>
+                        <li><a href="{{ url_for('home.blog_detail') }}">历史数据</a></li>
+                        <li><a href="{{ url_for('home.blog_list') }}">专家资讯</a></li>
+                        <li><a href="{{ url_for('home.commingsoon') }}">即将来到</a></li>
+                        <li class="kf_megamenu"><a href="#">我的预测</a></li>
+                    </ul>
+                    <!--Navigation End-->
+                    <a href="#" class="kf_cart">
+                        <i class="fa fa-shopping-basket "></i>
+                        <div class="text">
+                            <span>赌球 (03)</span>
+                            <em>$1200.00</em>
+                        </div>
+                    </a>
+                </div>
+                <!--Navigation Wrap End-->
+            </div>
+            <!--Logo Bar End-->
+        </div>
+    </header>
+
     {% block content %}
-    
+
     {% endblock %}
-</body>
-</html>
+
+
+    <!--Main Content Wrap End-->
+    <!--ticker Wrap Start-->
+    <div class="kf_ticker-wrap twitter_ticker">
+        <div class="container">
+            <div class="kf_ticker">
+                <span><i class="fa fa-twitter"></i></span>
+                <div class="kf_ticker_slider">
+                    <ul class="ticker">
+                        <li><p>我们为专业的主球推单平台,我们公司创建于2018年.位于菲律宾Ayala 大街,一家面前全球华人用户的主球数据分析平台 <a href="#">主球数据分析推单平台</a></p></li>
+                        <li><p>Laundry WordPress Theme' by kodeforest #themeforest <a href="#">https://t.co/nifHgDnXes</a></p></li>
+                        <li><p>Check out 'Be Clean WordPress Theme' by kodeforest #themeforest <a href="#">https://t.co/nifHgDnXes</a></p></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--ticker Wrap End-->
+    <!--Footer Wrap Start-->
+    <footer class="kode_footer_2">
+        <div class="container">
+            <span class="go-up">
+                <i class="fa fa-angle-up"></i>
+            </span>
+            <div class="row">
+                <div class="col-md-3">
+                    <!--Widget Text Start-->
+                    <div class="widget widget_text">
+                        <div class="logo">
+                            <a href="#"><img src="{{url_for('static',filename='')}}images/ft_logo2.png" alt=""></a>
+                        </div>
+                        <p>我们为专业的主球推单平台,我们公司创建于2018年.位于菲律宾Ayala 大街,一家面前全球华人用户的主球数据分析平台</p>
+                        <ul class="kf_contact_meta">
+                            <li>
+                                <span class="icon-placeholder"></span>
+                                <address>公司地址:616 Street, Old Trafford, New South Wales London , UK</address>
+                            </li>
+                            <li>
+                                <span class="icon-mail"></span>
+                                <p>公司邮箱:info@geepacificinc.com</p>
+                            </li>
+                            <li>
+                                <span class="icon-technology"></span>
+                                <p>办公电话:+ 457 789 789 65</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Widget Text End-->
+                </div>
+                <div class="col-md-3">
+                    <div class="widget widget_link2">
+                        <h2 class="kf_hd7">快捷访问</h2>
+                        <!--Widget Recent Post Start-->
+                        <ul class="links_dec links_dec2">
+                            <li><a href="#">主页</a></li>
+                            <li><a href="#">关于我们</a></li>
+                            <li><a href="#">团队</a></li>
+                            <li><a href="#">相册</a></li>
+                            <li><a href="#">新闻</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                        <!--Widget Recent Post End-->
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget widget_recentpost2">
+                        <h2 class="kf_hd7">快速访问</h2>
+                        <!--Link Dec Start-->
+                        <ul class="link_rnt_post">
+                            <li>
+                                <div class="kf_recentnews">
+                                    <figure>
+                                        <a href="#"><img src="{{url_for('static',filename='extra-images/recent_3.jpg')}}" alt=""></a>
+                                    </figure>
+                                    <div class="text">
+                                        <h6><a href="#">Recent News Heading</a></h6>
+                                        <p>The Arch Rivals have two major Victories</p>
+                                        <em class="kf_date">August 23rd, 2016</em>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="kf_recentnews">
+                                    <figure>
+                                        <a href="#"><img src="{{ url_for('static',filename='extra-images/recent_4.jpg') }}" alt=""></a>
+                                    </figure>
+                                    <div class="text">
+                                        <h6><a href="#">Recent News Heading</a></h6>
+                                        <p>The Arch Rivals have two major Victories</p>
+                                        <em class="kf_date">August 23rd, 2020</em>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--Link Dec End-->
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="widget widget_instagram">
+                        <h2 class="kf_hd7">我们的:instagram</h2>
+                        <!--Widget Recent Post Start-->
+                        <ul>
+                            <li><a href="#"><img src="{{url_for('static',filename='extra-images/insta1.jpg')}}" alt=""></a></li>
+                            <li><a href="#"><img src="{{url_for('static',filename='extra-images/insta2.jpg')}}" alt=""></a></li>
+                            <li><a href="#"><img src="{{url_for('static',filename='extra-images/insta3.jpg')}}" alt=""></a></li>
+                            <li><a href="#"><img src="{{url_for('static',filename='extra-images/insta4.jpg')}}" alt=""></a></li>
+                            <li><a href="#"><img src="{{url_for('static',filename='extra-images/insta5.jpg')}}" alt=""></a></li>
+                            <li><a href="#"><img src="{{url_for('static',filename='extra-images/insta6.jpg')}}" alt=""></a></li>
+                        </ul>
+                        <!--Widget Recent Post End-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--Footer Wrap End-->
+    <!--Copy Right Wrap Start-->
+    <div class="copy_right3">
+        <div class="container">
+            <p>2020 @ GeepacificInc Technology  <a href="#">Company</a></p>
+            <ul class="kf_social3">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-rss"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <!--Copy Right Wrap End-->
+    <!--Register Pop Up Wrap Start-->
+    <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="search">
+        <div class="modal-dialog" role="document">
+            <div class="input_dec">
+                <input type="text" placeholder="search......">
+                <button class="btn_icon"><i class="fa fa-search"></i></button>
+            </div>
+        </div>
+    </div>
+    <!--Register Pop Up Wrap End-->
+</div>
+
+
+    <!--Header 2 Wrap End-->
+    <!--kode Wrapper End-->
+
+{% endblock %}

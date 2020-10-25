@@ -8,6 +8,4 @@
 *.pyc            
 *.iml
 /migrations
-config.py
-load_data.py
 
