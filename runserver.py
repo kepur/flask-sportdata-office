@@ -5,4 +5,4 @@ __author__ = 'hozin'
 
 from app import sport_index
 if __name__ == '__main__':
-    sport_index.run(port=6777)
+    sport_index.run(port=7789)
